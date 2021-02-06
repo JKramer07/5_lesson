@@ -7,8 +7,8 @@ public class Main {
     public static int bossHealth = 700;
     public static int bossDamage = 50;
     public static String bossDefenceType = "";
-    public static int [] heroesHealth = {260, 270, 380, 200};
-    public static int [] heroesDamage = {10, 20, 5, 0};
+    public static int [] heroesHealth = {360, 270, 280, 300};
+    public static int [] heroesDamage = {30, 20, 15, 0};
     public static String[] heroesAttackType = {"Physical", "Magical", "Mental", "Medical"};
 
 
@@ -16,13 +16,12 @@ public class Main {
         while (!isFinished()){
             round();
         }
-        while (heroesHealth[3] <= 0){
-            isFinished();
+        while (heroesHealth[3] > 0){
+            medicTreats();
         }
-
     }
 
-    public static void round (){
+    public static void round(){
         printStatistics();
         System.out.println("Round was started!");
         heroesHit();
@@ -39,6 +38,7 @@ public class Main {
         System.out.println("Mag Health: " + heroesHealth[1]);
         System.out.println("Kinetic Health: " + heroesHealth[2]);
         System.out.println("Medic Health " + heroesHealth[3]);
+        System.out.println("Lucky Health " + heroesHealth[4]);
         System.out.println("----------------------");
     }
 
@@ -72,16 +72,16 @@ public class Main {
         return false;
     }
 
-    public static void changeBossDefenceType (){
+    public static void changeBossDefenceType(){
         Random random = new Random();
         int randomIndex = random.nextInt(heroesAttackType.length);
         bossDefenceType = heroesAttackType[randomIndex];
         System.out.println("Boss defence type: " + bossDefenceType);
     }
 
-    public static void medicTreats() {
+    public static void medicTreats(){
         for (int i = 0; i < heroesHealth.length; i++) {
-            if (heroesHealth[i] < 100) {
+            if (heroesHealth[3] > 0 && heroesHealth[i] < 100) {
                 Random r = new Random();
                 int random = r.nextInt(50);
                 heroesHealth[i] = heroesHealth[i] + random;
