@@ -13,6 +13,8 @@ public class Main {
 
 
     public static void main(String[] args) {
+
+
         while (!isFinished()){
             round();
         }
@@ -22,6 +24,7 @@ public class Main {
     }
 
     public static void round(){
+        Boss();
         printStatistics();
         System.out.println("Round was started!");
         heroesHit();
@@ -38,7 +41,6 @@ public class Main {
         System.out.println("Mag Health: " + heroesHealth[1]);
         System.out.println("Kinetic Health: " + heroesHealth[2]);
         System.out.println("Medic Health " + heroesHealth[3]);
-        System.out.println("Lucky Health " + heroesHealth[4]);
         System.out.println("----------------------");
     }
 
@@ -90,4 +92,26 @@ public class Main {
             }
         }
     }
+
+    public static void Boss(){
+        Boss boss = new Boss();
+        boss.setHealth(700);
+        boss.setDamage(50);
+        boss.setDefenceType("Random defence");
+        System.out.println("Boss health: " + boss.getHealth());
+        System.out.println("Boss damage: " + boss.getDamage());
+        System.out.println("Defence type: " + boss.getDefenceType());
+    }
+
+
+    public String createHeroes(){
+        Hero hero1 = new Hero(250, 30, "Berserk");
+        Hero hero2 = new Hero(280, 25);
+        Hero hero3 = new Hero(200, 20, "Magic");
+
+        String[] heroesArray = {"hero1", "hero2", "hero3"};
+        return;
+    }
+
+
 }
