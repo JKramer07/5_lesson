@@ -14,7 +14,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-
         while (!isFinished()){
             round();
         }
@@ -24,7 +23,10 @@ public class Main {
     }
 
     public static void round(){
+        System.out.println("Boss!");
         Boss();
+        System.out.println("Heroes!");
+        createHeroes();
         printStatistics();
         System.out.println("Round was started!");
         heroesHit();
@@ -104,13 +106,16 @@ public class Main {
     }
 
 
-    public String createHeroes(){
+    public static Hero[] createHeroes(){
         Hero hero1 = new Hero(250, 30, "Berserk");
+        System.out.println(hero1.getIngo());
         Hero hero2 = new Hero(280, 25);
+        System.out.println(hero2.getIngo());
         Hero hero3 = new Hero(200, 20, "Magic");
+        System.out.println(hero3.getIngo());
 
-        String[] heroesArray = {"hero1", "hero2", "hero3"};
-        return;
+        Hero[] array = {hero1, hero2, hero3};
+        return array;
     }
 
 
