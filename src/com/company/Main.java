@@ -96,13 +96,14 @@ public class Main {
     }
 
     public static void Boss(){
-        Boss boss = new Boss();
-        boss.setHealth(700);
-        boss.setDamage(50);
-        boss.setDefenceType("Random defence");
-        System.out.println("Boss health: " + boss.getHealth());
-        System.out.println("Boss damage: " + boss.getDamage());
-        System.out.println("Defence type: " + boss.getDefenceType());
+        Boss boss = new Boss(700, 50, "Powerful", "Random", "Gun", "DeathGun");
+        System.out.println(boss.getInfo());
+//        boss.setHealth(700);
+//        boss.setDamage(50);
+//        boss.setDefenceType("Random defence");
+//        System.out.println("Boss health: " + boss.getHealth());
+//        System.out.println("Boss damage: " + boss.getDamage());
+//        System.out.println("Defence type: " + boss.getDefenceType());
     }
 
 
